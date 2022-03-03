@@ -1,7 +1,7 @@
 # texlive.profile written on Thu Mar  3 10:02:36 2022 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
-selected_scheme scheme-custom
+selected_scheme scheme-full
 TEXDIR /usr/local/texlive/2021
 TEXMFCONFIG ~/.texlive2021/texmf-config
 TEXMFHOME ~/texmf
