@@ -1,0 +1,17 @@
+name: Comment when opened
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  issues:
+    types:
+      - opened
+jobs:
+  monthly_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get today's date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y/%m')"
+      - run: gh release create ${{ steps.date.outputs.date }} --generate-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
