@@ -18,4 +18,7 @@ jobs:
 
       - run: gh release create ${{ steps.date.outputs.date }} --generate-notes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # We cannot use the default secrets.GITHUB_TOKEN, as if a release is created with that it
+          # will not trigger other Actions (that are triggered on release), so we pass in a PAT (so
+          # that it looks like I added the release 'manually')
+          GITHUB_TOKEN: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
