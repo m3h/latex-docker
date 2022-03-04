@@ -14,7 +14,7 @@ jobs:
 
       - name: Get today's date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y/%m/%s')"
+        run: echo "::set-output name=date::$(date +'%Y/%m-%s')"
 
       - run: gh release create ${{ steps.date.outputs.date }} --generate-notes
         env:
