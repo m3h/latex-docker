@@ -1,7 +1,7 @@
 name: Comment when opened
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 1 * *'
   issues:
     types:
       - opened
@@ -14,7 +14,7 @@ jobs:
 
       - name: Get today's date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y/%m-%s')"
+        run: echo "::set-output name=date::$(date +'%Y/%m')"
 
       - run: gh release create ${{ steps.date.outputs.date }} --generate-notes
         env:
