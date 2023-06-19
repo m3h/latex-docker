@@ -11,7 +11,8 @@ COPY texlive.profile "${TEXLIVE_PROFILE}"
 # libtest-pod-perl is required to run the install-tl script
 RUN apt-get update && apt-get install -y \
 	curl \
-	libtest-pod-perl
+	libtest-pod-perl \
+	libfontconfig
 
 RUN curl "${INSTALL_TL_URL}" --location --output "${LATEX_INSTALL_DIR}/install-tl.tar.gz" \
 	&& tar xaf "${LATEX_INSTALL_DIR}/install-tl.tar.gz" --directory="${LATEX_INSTALL_DIR}" \
